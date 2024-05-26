@@ -165,6 +165,7 @@ class PlatformMediaSettings {
     this.videoBitrate,
     this.audioBitrate,
     required this.enableAudio,
+    this.isMultitaskingEnabled,
   });
 
   PlatformResolutionPreset resolutionPreset;
@@ -177,6 +178,8 @@ class PlatformMediaSettings {
 
   bool enableAudio;
 
+  bool? isMultitaskingEnabled;
+
   Object encode() {
     return <Object?>[
       resolutionPreset.index,
@@ -184,6 +187,7 @@ class PlatformMediaSettings {
       videoBitrate,
       audioBitrate,
       enableAudio,
+      isMultitaskingEnabled,
     ];
   }
 
@@ -195,6 +199,7 @@ class PlatformMediaSettings {
       videoBitrate: result[2] as int?,
       audioBitrate: result[3] as int?,
       enableAudio: result[4]! as bool,
+      isMultitaskingEnabled: result[5] as bool?,
     );
   }
 }

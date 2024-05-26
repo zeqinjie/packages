@@ -158,12 +158,14 @@ typedef NS_ENUM(NSUInteger, FCPPlatformResolutionPreset) {
                          framesPerSecond:(nullable NSNumber *)framesPerSecond
                             videoBitrate:(nullable NSNumber *)videoBitrate
                             audioBitrate:(nullable NSNumber *)audioBitrate
-                             enableAudio:(BOOL)enableAudio;
+                             enableAudio:(BOOL)enableAudio
+                   isMultitaskingEnabled:(nullable NSNumber *)isMultitaskingEnabled;
 @property(nonatomic, assign) FCPPlatformResolutionPreset resolutionPreset;
 @property(nonatomic, strong, nullable) NSNumber *framesPerSecond;
 @property(nonatomic, strong, nullable) NSNumber *videoBitrate;
 @property(nonatomic, strong, nullable) NSNumber *audioBitrate;
 @property(nonatomic, assign) BOOL enableAudio;
+@property(nonatomic, strong, nullable) NSNumber *isMultitaskingEnabled;
 @end
 
 @interface FCPPlatformPoint : NSObject

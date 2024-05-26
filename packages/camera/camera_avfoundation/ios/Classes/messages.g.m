@@ -217,13 +217,15 @@ static id GetNullableObjectAtIndex(NSArray *array, NSInteger key) {
                          framesPerSecond:(nullable NSNumber *)framesPerSecond
                             videoBitrate:(nullable NSNumber *)videoBitrate
                             audioBitrate:(nullable NSNumber *)audioBitrate
-                             enableAudio:(BOOL)enableAudio {
+                             enableAudio:(BOOL)enableAudio
+                   isMultitaskingEnabled:(nullable NSNumber *)isMultitaskingEnabled {
   FCPPlatformMediaSettings *pigeonResult = [[FCPPlatformMediaSettings alloc] init];
   pigeonResult.resolutionPreset = resolutionPreset;
   pigeonResult.framesPerSecond = framesPerSecond;
   pigeonResult.videoBitrate = videoBitrate;
   pigeonResult.audioBitrate = audioBitrate;
   pigeonResult.enableAudio = enableAudio;
+  pigeonResult.isMultitaskingEnabled = isMultitaskingEnabled;
   return pigeonResult;
 }
 + (FCPPlatformMediaSettings *)fromList:(NSArray *)list {
@@ -233,6 +235,7 @@ static id GetNullableObjectAtIndex(NSArray *array, NSInteger key) {
   pigeonResult.videoBitrate = GetNullableObjectAtIndex(list, 2);
   pigeonResult.audioBitrate = GetNullableObjectAtIndex(list, 3);
   pigeonResult.enableAudio = [GetNullableObjectAtIndex(list, 4) boolValue];
+  pigeonResult.isMultitaskingEnabled = GetNullableObjectAtIndex(list, 5);
   return pigeonResult;
 }
 + (nullable FCPPlatformMediaSettings *)nullableFromList:(NSArray *)list {
@@ -245,13 +248,15 @@ static id GetNullableObjectAtIndex(NSArray *array, NSInteger key) {
     self.videoBitrate ?: [NSNull null],
     self.audioBitrate ?: [NSNull null],
     @(self.enableAudio),
+    self.isMultitaskingEnabled ?: [NSNull null],
   ];
 }
 @end
 
 @implementation FCPPlatformPoint
-+ (instancetype)makeWithX:(double)x y:(double)y {
-  FCPPlatformPoint *pigeonResult = [[FCPPlatformPoint alloc] init];
++ (instancetype)makeWithX:(double )x
+    y:(double )y {
+  FCPPlatformPoint* pigeonResult = [[FCPPlatformPoint alloc] init];
   pigeonResult.x = x;
   pigeonResult.y = y;
   return pigeonResult;
