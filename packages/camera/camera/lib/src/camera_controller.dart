@@ -235,6 +235,8 @@ class CameraController extends ValueNotifier<CameraValue> {
   ///
   /// - [resolutionPreset] affect the quality of video recording and image capture.
   /// - [enableAudio] controls audio presence in recorded video.
+  /// - [isMultitaskingEnabled] controls whether the capture session supports using the camera while multitasking.
+  /// Only on iOS 16.0+ or iPadOS 16.0+.
   ///
   /// Following parameters (if present) will overwrite [resolutionPreset] settings:
   /// - [fps] controls rate at which frames should be captured by the camera in frames per second.
@@ -245,6 +247,7 @@ class CameraController extends ValueNotifier<CameraValue> {
     CameraDescription description,
     ResolutionPreset resolutionPreset, {
     bool enableAudio = true,
+    bool isMultitaskingEnabled = false,
     int? fps,
     int? videoBitrate,
     int? audioBitrate,
@@ -252,6 +255,7 @@ class CameraController extends ValueNotifier<CameraValue> {
   })  : mediaSettings = MediaSettings(
             resolutionPreset: resolutionPreset,
             enableAudio: enableAudio,
+            isMultitaskingEnabled: isMultitaskingEnabled,
             fps: fps,
             videoBitrate: videoBitrate,
             audioBitrate: audioBitrate),

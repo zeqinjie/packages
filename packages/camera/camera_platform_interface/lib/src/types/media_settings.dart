@@ -19,6 +19,7 @@ class MediaSettings {
     this.videoBitrate,
     this.audioBitrate,
     this.enableAudio = false,
+    this.isMultitaskingEnabled = false,
   })  : assert(fps == null || fps > 0, 'fps must be null or greater than zero'),
         assert(videoBitrate == null || videoBitrate > 0,
             'videoBitrate must be null or greater than zero'),
@@ -39,6 +40,10 @@ class MediaSettings {
 
   /// Controls audio presence in recorded video.
   final bool enableAudio;
+ 
+  /// The capture session supports using the camera while multitasking.
+  /// Only on iOS 16.0+ or iPadOS 16.0+
+  final bool isMultitaskingEnabled;
 
   @override
   bool operator ==(Object other) {
@@ -53,7 +58,8 @@ class MediaSettings {
         fps == other.fps &&
         videoBitrate == other.videoBitrate &&
         audioBitrate == other.audioBitrate &&
-        enableAudio == other.enableAudio;
+        enableAudio == other.enableAudio &&
+        isMultitaskingEnabled == other.isMultitaskingEnabled;
   }
 
   @override
@@ -63,6 +69,7 @@ class MediaSettings {
         videoBitrate,
         audioBitrate,
         enableAudio,
+        isMultitaskingEnabled,
       );
 
   @override
@@ -72,6 +79,7 @@ class MediaSettings {
         'fps: $fps, '
         'videoBitrate: $videoBitrate, '
         'audioBitrate: $audioBitrate, '
-        'enableAudio: $enableAudio}';
+        'enableAudio: $enableAudio, ' 
+        'isMultitaskingEnabled: $isMultitaskingEnabled}';
   }
 }

@@ -111,6 +111,7 @@ class MethodChannelCamera extends CameraPlatform {
         'videoBitrate': mediaSettings.videoBitrate,
         'audioBitrate': mediaSettings.audioBitrate,
         'enableAudio': mediaSettings.enableAudio,
+        'isMultitaskingEnabled': mediaSettings.isMultitaskingEnabled,
       });
 
       return reply!['cameraId']! as int;

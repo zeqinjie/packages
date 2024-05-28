@@ -188,7 +188,19 @@ NSString *const errorMethod = @"error";
   // After some testing, 4 was determined to be the best maximum value.
   // https://github.com/flutter/plugins/pull/4520#discussion_r766335637
   _maxStreamingPendingFramesCount = 4;
-
+  
+  // The capture session supports using the camera while multitasking.
+  // https://github.com/flutter/flutter/issues/147983
+  if (@available(iOS 16.0, *)) {
+    BOOL isMultitaskingEnabled = [mediaSettings.isMultitaskingEnabled boolValue];
+    if ([_videoCaptureSession isMultitaskingCameraAccessSupported]) {
+        _videoCaptureSession.multitaskingCameraAccessEnabled = isMultitaskingEnabled;
+    }
+    if ([_audioCaptureSession isMultitaskingCameraAccessSupported]) {
+        _audioCaptureSession.multitaskingCameraAccessEnabled = isMultitaskingEnabled;
+    }
+  }
+  
   NSError *localError = nil;
   AVCaptureConnection *connection = [self createConnection:&localError];
   if (localError) {

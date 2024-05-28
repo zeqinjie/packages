@@ -105,6 +105,8 @@ class AVFoundationCamera extends CameraPlatform {
             videoBitrate: mediaSettings?.videoBitrate,
             audioBitrate: mediaSettings?.audioBitrate,
             enableAudio: mediaSettings?.enableAudio ?? true,
+            isMultitaskingEnabled:
+                mediaSettings?.isMultitaskingEnabled ?? false,
           ));
     } on PlatformException catch (e) {
       throw CameraException(e.code, e.message);
