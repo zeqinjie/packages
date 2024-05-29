@@ -1,3 +1,8 @@
+## 0.9.17
+
+* Adds `isMultitaskingEnabled` controls whether the capture session supports using the camera while multitasking.
+* Only on iOS 16.0+ or iPadOS 16.0+.
+
 ## 0.9.16
 
 * Converts Dart-to-host communcation to Pigeon.

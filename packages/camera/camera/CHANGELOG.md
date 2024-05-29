@@ -2,6 +2,11 @@
 
 * Updates minimum supported SDK version to Flutter 3.16/Dart 3.2.
 
+## 0.11.1
+
+* Adds `isMultitaskingEnabled` controls whether the capture session supports using the camera while multitasking.
+* Only on iOS 16.0+ or iPadOS 16.0+.
+
 ## 0.11.0
 
 * **Breaking Change** Changes the Android implementation of the camera plugin from `camera_android`

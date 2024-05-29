@@ -43,6 +43,13 @@ void main() {
       isFalse,
       reason: 'MediaSettings constructor should have false default enableAudio',
     );
+
+    expect(
+      settingsWithNoParameters.isMultitaskingEnabled,
+      isFalse,
+      reason:
+          'MediaSettings constructor should have false default isMultitaskingEnabled',
+    );
   });
 
   test('MediaSettings fps should hold parameters', () {
@@ -97,7 +104,7 @@ void main() {
 
     expect(
       settings.hashCode,
-      Object.hash(ResolutionPreset.low, 20, 128000, 32000, true),
+      Object.hash(ResolutionPreset.low, 20, 128000, 32000, true, false),
       reason:
           'MediaSettings hash() should be equal to Object.hash of parameters',
     );
