@@ -31,7 +31,8 @@
                                                           framesPerSecond:nil
                                                              videoBitrate:nil
                                                              audioBitrate:nil
-                                                              enableAudio:YES]
+                                                              enableAudio:YES
+                                                    isMultitaskingEnabled:nil]
                                   completion:^(NSNumber *_Nullable result,
                                                FlutterError *_Nullable error) {
                                     [createExpectation fulfill];
