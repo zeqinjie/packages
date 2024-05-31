@@ -14,7 +14,8 @@ static FCPPlatformMediaSettings *FCPGetDefaultMediaSettings(
                                             framesPerSecond:nil
                                                videoBitrate:nil
                                                audioBitrate:nil
-                                                enableAudio:YES];
+                                                enableAudio:YES 
+                                      isMultitaskingEnabled:nil];
 }
 
 FLTCam *FLTCreateCamWithCaptureSessionQueue(dispatch_queue_t captureSessionQueue) {
