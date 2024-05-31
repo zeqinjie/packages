@@ -14,6 +14,7 @@ static const int gTestFramesPerSecond = 15;
 static const int gTestVideoBitrate = 200000;
 static const int gTestAudioBitrate = 32000;
 static const BOOL gTestEnableAudio = YES;
+static const BOOL gIsMultitaskingEnabled = NO;
 
 @interface CameraSettingsTests : XCTestCase
 @end
@@ -137,7 +138,8 @@ static const BOOL gTestEnableAudio = YES;
                                          framesPerSecond:@(gTestFramesPerSecond)
                                             videoBitrate:@(gTestVideoBitrate)
                                             audioBitrate:@(gTestAudioBitrate)
-                                             enableAudio:gTestEnableAudio];
+                                             enableAudio:gTestEnableAudio
+                                   isMultitaskingEnabled:@(gIsMultitaskingEnabled)];
   TestMediaSettingsAVWrapper *injectedWrapper =
       [[TestMediaSettingsAVWrapper alloc] initWithTestCase:self];
 
@@ -184,7 +186,8 @@ static const BOOL gTestEnableAudio = YES;
                                          framesPerSecond:@(gTestFramesPerSecond)
                                             videoBitrate:@(gTestVideoBitrate)
                                             audioBitrate:@(gTestAudioBitrate)
-                                             enableAudio:gTestEnableAudio];
+                                             enableAudio:gTestEnableAudio
+                                   isMultitaskingEnabled:@(gIsMultitaskingEnabled)];
 
   __block NSNumber *resultValue;
   [camera createCameraOnSessionQueueWithName:@"acamera"
